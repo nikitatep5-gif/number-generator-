@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Number Generator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+  }
+  button {
+    padding: 8px 16px;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  #result {
+    font-size: 40px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>Random Number Generator</h1>
+
+<p>
+  Min: <input type="number" id="min" value="1">
+  Max: <input type="number" id="max" value="100">
+</p>
+
+<button onclick="generateNumber()">Generate</button>
+
+<div id="result">-</div>
+
+<script>
+function generateNumber() {
+  var min = parseInt(document.getElementById("min").value);
+  var max = parseInt(document.getElementById("max").value);
+
+  if (isNaN(min) || isNaN(max) || min >= max) {
+    document.getElementById("result").innerHTML = "Invalid range";
+    return;
+  }
+
+  var num = Math.floor(Math.random() * (max - min + 1)) + min;
+  document.getElementById("result").innerHTML = num;
+}
+</script>
+
+</body>
+</html>
