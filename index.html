@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="about">
+    <h1>Your Name</h1>
+    <p>A short line about who you are and what you're into.</p>
+  </header>
+
+  <section id="projects">
+    <h2>Projects</h2>
+
+    <article class="project">
+      <h3>Random Number Generator</h3>
+      <p>A short description — what it does, what you learned building it.</p>
+
+      <div class="number-generator">
+        <label for="min">Min: <input type="number" id="min" value="1"></label>
+        <label for="max">Max: <input type="number" id="max" value="100"></label>
+        <button onclick="generateNumber()">Generate</button>
+        <p id="result">-</p>
+      </div>
+    </article>
+
+    <!-- add more <article class="project"> blocks for other projects -->
+
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <ul>
+      <li><a href="mailto:you@example.com">Email</a></li>
+      <li><a href="https://github.com/yourusername">GitHub</a></li>
+    </ul>
+  </section>
+
+  <script>
+    function generateNumber() {
+      var min = parseInt(document.getElementById("min").value);
+      var max = parseInt(document.getElementById("max").value);
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        document.getElementById("result").innerHTML = "Invalid range";
+        return;
+      }
+      var num = Math.floor(Math.random() * (max - min + 1)) + min;
+      document.getElementById("result").innerHTML = num;
+    }
+  </script>
+
+</body>
+</html>
